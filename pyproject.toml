@@ -30,11 +30,7 @@ disable_warnings = [
 ]
 parallel = true
 source_pkgs = [
-    "dip",
-    "isp",
-    "lsp",
-    "ocp",
-    "srp",
+    "solid",
 ]
 
 [tool.coverage.paths]
@@ -150,11 +146,7 @@ deps =
     mypy
     pytest
 commands =
-    python -m mypy -p dip
-    python -m mypy -p isp
-    python -m mypy -p lsp
-    python -m mypy -p ocp
-    python -m mypy -p srp
+    python -m mypy -p solid
     python -m mypy tests/
 
 [testenv:ruffformat]
