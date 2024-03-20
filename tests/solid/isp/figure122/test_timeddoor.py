@@ -1,7 +1,7 @@
 import pytest
 
-from solid.isp.example2.timeddoor import TimedDoor
-from solid.isp.example2.timer import Timer
+from solid.isp.figure122.timeddoor import TimedDoor
+from solid.isp.figure122.timer import Timer
 
 
 @pytest.fixture()
