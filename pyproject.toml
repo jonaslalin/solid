@@ -85,6 +85,10 @@ select = [
     "PT",     # flake8-pytest-style
 ]
 
+[tool.ruff.lint.flake8-pytest-style]
+fixture-parentheses = false
+mark-parentheses = false
+
 [tool.tox]
 legacy_tox_ini = """
 [tox]

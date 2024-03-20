@@ -4,12 +4,12 @@ from solid.isp.figure122.timeddoor import TimedDoor
 from solid.isp.figure122.timer import Timer
 
 
-@pytest.fixture()
+@pytest.fixture
 def timer() -> Timer:
     return Timer()
 
 
-@pytest.fixture()
+@pytest.fixture
 def timed_door(timer: Timer) -> TimedDoor:
     return TimedDoor(timer=timer, timeout=10)
 
