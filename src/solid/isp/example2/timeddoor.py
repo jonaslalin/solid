@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 
 from .door import Door
-from .doortimeradapter import DoorTimerAdapter
 from .timer import Timer
+from .timerclient import TimerClient
 
 
 @dataclass
@@ -29,3 +29,11 @@ class TimedDoor(Door):
     def other_on_timeout(self, timeout_id: int) -> None:
         if timeout_id == self.active_timeout_id:
             self.alarm()
+
+
+@dataclass
+class DoorTimerAdapter(TimerClient):
+    timed_door: TimedDoor
+
+    def on_timeout(self, timeout_id: int) -> None:
+        self.timed_door.other_on_timeout(timeout_id)

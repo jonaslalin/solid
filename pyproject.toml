@@ -147,7 +147,7 @@ deps =
     pytest
 commands =
     python -m mypy -p solid
-    python -m mypy tests/
+    python -m mypy --explicit-package-bases tests/
 
 [testenv:ruffformat]
 description = run format checks
