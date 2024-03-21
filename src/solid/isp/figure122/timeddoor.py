@@ -10,18 +10,18 @@ class TimedDoor(Door):
     timer: Timer
     timeout: int
     active_timeout_id: int = -1
-    the_lock: bool = False
+    locked: bool = False
 
     def lock(self) -> None:
-        self.the_lock = True
+        self.locked = True
 
     def unlock(self) -> None:
         self.active_timeout_id += 1
         self.timer.register(timeout=self.timeout, timeout_id=self.active_timeout_id, client=DoorTimerAdapter(self))
-        self.the_lock = False
+        self.locked = False
 
     def is_open(self) -> bool:
-        return not self.the_lock
+        return not self.locked
 
     def alarm(self) -> None:
         print("beep beep beep")

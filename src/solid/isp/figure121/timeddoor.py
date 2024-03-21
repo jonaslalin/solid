@@ -8,17 +8,17 @@ from .timer import Timer
 class TimedDoor(Door):
     timer: Timer
     timeout: int
-    the_lock: bool = False
+    locked: bool = False
 
     def lock(self) -> None:
-        self.the_lock = True
+        self.locked = True
 
     def unlock(self) -> None:
         self.timer.register(timeout=self.timeout, client=self)
-        self.the_lock = False
+        self.locked = False
 
     def is_open(self) -> bool:
-        return not self.the_lock
+        return not self.locked
 
     def alarm(self) -> None:
         print("beep beep beep")
